@@ -1,0 +1,14 @@
+{% extends 'encyclopedia/layout.html' %}
+{% block title %}
+    Edit Entry
+{% endblock title %}
+{% block body %}
+    <h1>Edit the "{{title}}" page </h1>
+    <hr>
+    <form action="{% url 'encyclopedia:edit' %}" method="POST" style="position: relative;">
+        {% csrf_token %}
+        <textarea type="text" name="content" style="position: absolute; margin-top: 10px; margin-left: 10px; height: 550px;">{{text}}</textarea>
+        <input type="hidden" name="some_Value" value="{{title}}">
+        <button type="submit" style="position: absolute;margin-left: 76%; margin-top:570px;height: 100%;color: white;background-color: #4d90fe;border: 1px solid #3079ed;font: 13.5px arial,sans-serif; height:30px;">Save</button>
+    </form>
+{% endblock body %}

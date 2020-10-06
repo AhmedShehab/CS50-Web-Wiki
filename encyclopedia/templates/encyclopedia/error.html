@@ -1,0 +1,12 @@
+{% extends 'encyclopedia/layout.html' %}
+{% block title %}
+    Error
+{% endblock title %}
+{% block body %}
+<h2>Error: Entry "{{entry}}" not Found</h2>
+<hr>
+<label>Check your entry and try again</label>
+<form action="{% url 'encyclopedia:index' %}">
+<button type="submit" style="border:white solid;outline:none; background-color:  #4d90fe;color: white;margin-left: 77%;">Return Home</button>
+</form>
+{% endblock body %}

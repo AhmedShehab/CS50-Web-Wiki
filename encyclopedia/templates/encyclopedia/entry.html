@@ -1,0 +1,17 @@
+{%extends "encyclopedia/layout.html"%}
+{% load static %}
+{% block Style %}
+    <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+{% endblock Style %}
+{% block title %}
+    {{title}}
+{% endblock %}
+{% block body %}
+    {{text|safe}}
+    <form action="{% url 'encyclopedia:edit' %}" method="POST">    
+        <input type="hidden" name="title" value="{{title}}">
+        <button style="border:white solid;outline:none; background-color:  #4d90fe;color: white;margin-left: 77%;">Edit</button>
+        <input type="submit" hidden>
+        {% csrf_token %}
+    </form>
+{% endblock body %}
